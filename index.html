@@ -1219,9 +1219,7 @@
   // ── RENDER BOOKINGS ──
   function renderBookings() {
     const grid = document.getElementById('booking-grid');
-    const bookable = ATTENDEES.filter(a => a.id !== 'dylan');
-
-    grid.innerHTML = bookable.map(a => {
+    grid.innerHTML = ATTENDEES.map(a => {
       const booking = bookings[a.id];
       const isActive = activeBookingPerson === a.id;
       const cardClass = booking ? 'booked' : (isActive ? 'active' : '');
