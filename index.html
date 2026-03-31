@@ -71,6 +71,10 @@
       color: var(--text-primary);
       background: rgba(255, 107, 53, 0.15);
     }
+    nav a.active {
+      color: var(--text-primary);
+      background: rgba(255, 107, 53, 0.2);
+    }
 
     /* ── HERO ── */
     .hero {
@@ -689,7 +693,7 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         color: var(--text-secondary);
       }
-      nav a:hover, nav a:active {
+      nav a:hover, nav a:active, nav a.active {
         background: rgba(255, 107, 53, 0.2);
         border-color: rgba(255, 107, 53, 0.4);
         color: var(--text-primary);
@@ -822,14 +826,13 @@
 
   <!-- Flight Group 1 -->
   <div class="flight-group">
-    <div class="flight-group-header">⭐ Depart Thursday 7:26am → 8:37am PHX — Delta DL 1047</div>
-    <div class="flight-group-note">Earliest arrival — most time in Scottsdale</div>
+    <div class="flight-group-header">Depart Thursday 7:26am → 8:37am PHX — Delta DL 1047</div>
+    <div class="flight-group-note">Earliest arrival — most time in Scottsdale. Note: Airbnb check-in won't be until Thursday afternoon, so you'll need to carry luggage until then.</div>
 
     <div class="flight-option">
       <div class="flight-option-number">1</div>
       <div class="flight-option-details">Return Sun 5:17pm → 10:29pm MSP <span style="color:var(--text-muted)">(DL 2284)</span></div>
       <div class="flight-option-price">$357</div>
-      <span class="flight-option-badge">Best Value</span>
     </div>
     <div class="flight-option">
       <div class="flight-option-number">2</div>
@@ -845,7 +848,8 @@
 
   <!-- Flight Group 2 -->
   <div class="flight-group">
-    <div class="flight-group-header">Depart Thursday 9:28am → 10:43am PHX — Delta DL 2208</div>
+    <div class="flight-group-header">⭐ Depart Thursday 9:28am → 10:43am PHX — Delta DL 2208</div>
+    <div class="flight-group-note">Recommended — works best with 3/4pm Airbnb check-in</div>
 
     <div class="flight-option">
       <div class="flight-option-number">4</div>
@@ -861,6 +865,7 @@
       <div class="flight-option-number">6</div>
       <div class="flight-option-details">Return Sun 9:42am → 2:45pm MSP <span style="color:var(--text-muted)">(DL 1047)</span></div>
       <div class="flight-option-price">$419</div>
+      <span class="flight-option-badge">Recommended</span>
     </div>
   </div>
 
@@ -888,7 +893,7 @@
   <!-- Flight Group 4 - Sun Country -->
   <div class="flight-group">
     <div class="flight-group-header">⚠️ Depart Thursday 9:30pm → 10:47pm PHX — Sun Country SY 609</div>
-    <div class="flight-group-note">You won't arrive until ~11pm Thursday night</div>
+    <div class="flight-group-note">You won't arrive until ~11pm Thursday night — but works well if you need to work Thursday</div>
 
     <div class="flight-option">
       <div class="flight-option-number">10</div>
@@ -903,7 +908,7 @@
   </div>
 
   <div class="recommendation-box">
-    💡 <b>Recommendation:</b> The 7:26am Delta departure + 5:17pm Sunday return (Option 1) at <b>$357</b> is the sweet spot — you get a full Thursday in Scottsdale and don't have to rush out Sunday morning. If you want to save ~$40, the Sun Country options work but you lose all of Thursday night.
+    💡 <b>Recommendation:</b> The 9:28am Delta departure + 9:42am Sunday return (Option 6) at <b>$419</b> is the move — it lines up with the 3/4pm Airbnb check-in and 10/11am checkout. Heads up: check-in won't be until Thursday afternoon, so earlier flights mean carrying luggage until then.
   </div>
 
 
@@ -1049,7 +1054,7 @@
         <li>Swim trunks</li>
         <li>Sunglasses</li>
         <li>Going-out clothes for nightlife</li>
-        <li>Golf clothes (if we golf)</li>
+        <li>Golf clothes (if we night golf)</li>
         <li>Comfortable shoes</li>
         <li>Hangover kit (Pedialyte, Advil)</li>
       </ul>
@@ -1103,7 +1108,7 @@
   ];
 
   const ACTIVITIES = [
-    { id: 'golf', name: 'Golf', icon: '⛳' },
+    { id: 'golf', name: 'Night Golf', icon: '⛳' },
     { id: 'pool', name: 'Pool / Day Club', icon: '🏊' },
     { id: 'barcrawl', name: 'Bar Crawl', icon: '🍻' },
     { id: 'atv', name: 'ATV / UTV Desert Tour', icon: '🏜️' },
@@ -1345,6 +1350,26 @@
       }
     });
   });
+
+  // ── SCROLL SPY (highlight active nav link) ──
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+  function updateActiveNav() {
+    const navHeight = document.querySelector('nav').offsetHeight + 20;
+    let current = '';
+    for (const section of sections) {
+      if (window.scrollY >= section.offsetTop - navHeight - 40) {
+        current = section.id;
+      }
+    }
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
 
   // ── INIT (Firebase listeners handle rendering) ──
   renderAttendees();
