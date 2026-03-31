@@ -1215,6 +1215,7 @@
   // ── RSVP TOGGLE → Firebase ──
   function toggleRSVP(id) {
     if (rsvps[id]) {
+      if (!confirm('Are you sure you want to un-RSVP?')) return;
       db.ref('rsvps/' + id).remove();
     } else {
       db.ref('rsvps/' + id).set(true);
