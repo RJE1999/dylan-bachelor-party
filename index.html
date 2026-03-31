@@ -1274,7 +1274,7 @@
   // ── RENDER VOTER PILLS ──
   function renderVoterPills() {
     const container = document.getElementById('voter-pills');
-    const votable = ATTENDEES.filter(a => a.id !== 'dylan');
+    const votable = ATTENDEES;
     container.innerHTML = votable.map(a => {
       const isActive = activeVoter === a.id;
       const hasVoted = votes[a.id] && votes[a.id].length > 0;
