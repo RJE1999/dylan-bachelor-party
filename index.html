@@ -1198,7 +1198,7 @@
       const isGroom = a.id === 'dylan';
       const isConfirmed = isGroom || rsvps[a.id];
       const clickAction = isGroom ? '' : `onclick="toggleRSVP('${a.id}')"`;
-      const actionText = isGroom ? 'The Man' : (isConfirmed ? '✅ I\'m in! (tap to undo)' : 'Tap to confirm');
+      const actionText = isGroom ? 'The Man' : (isConfirmed ? '✅ I\'m in!' : 'Tap to confirm');
       return `
         <div class="attendee ${isConfirmed ? 'confirmed' : ''} ${isGroom ? 'groom' : ''}" ${clickAction}>
           <div class="attendee-avatar">${isConfirmed ? '✓' : a.initials}</div>
