@@ -1264,6 +1264,7 @@
   function selectFlight(personId, optionNum) {
     db.ref('bookings/' + personId).set(optionNum);
     activeBookingPerson = null;
+    renderBookings();
   }
 
   function clearBooking(personId) {
