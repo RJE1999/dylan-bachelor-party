@@ -432,6 +432,145 @@
     }
     .recommendation-box b { color: var(--neon-gold); }
 
+    /* ── AIRBNB CAROUSEL ── */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px 12px 0 0;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+    .carousel-track img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+      aspect-ratio: 16/10;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.3s;
+    }
+    .carousel-btn:hover { background: rgba(0,0,0,0.8); }
+    .carousel-btn.prev { left: 12px; }
+    .carousel-btn.next { right: 12px; }
+    .carousel-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s;
+    }
+    .carousel-dot.active { background: white; }
+    .airbnb-details {
+      padding: 28px 32px;
+    }
+    .airbnb-details h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .airbnb-location {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .airbnb-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .airbnb-info-item {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .airbnb-info-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .airbnb-info-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--text-primary);
+    }
+    .airbnb-beds {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .airbnb-section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--neon-orange);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .amenity-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .amenity-pill {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    .airbnb-rules {
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .airbnb-cost {
+      background: rgba(255, 215, 0, 0.08);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+    .airbnb-cost b { color: var(--neon-gold); }
+
     /* ── FLIGHT BOOKING STATUS ── */
     .booking-grid {
       display: flex;
@@ -716,6 +855,9 @@
       .section-header h2 { font-size: 32px; }
       .flight-option { padding: 10px 12px; }
       .activities-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+      .airbnb-details { padding: 20px 16px; }
+      .airbnb-info-value { font-size: 18px; }
+      .airbnb-cost { flex-direction: column; gap: 4px; text-align: center; }
     }
   </style>
 </head>
@@ -935,10 +1077,83 @@
     <div class="section-divider"></div>
   </div>
 
-  <div class="card" style="text-align: center; padding: 60px 32px;">
-    <div style="font-size: 48px; margin-bottom: 16px;">🏠</div>
-    <h3>TBD — COMING SOON</h3>
-    <p style="color: var(--text-secondary); font-size: 14px; max-width: 400px; margin: 12px auto 0;">Looking at Airbnb/VRBO rentals near Old Town Scottsdale.<br>Need: pool, 10 guests, close to bars.</p>
+  <div class="card" style="padding: 0; overflow: hidden;">
+    <!-- Image Carousel -->
+    <div class="carousel" id="airbnb-carousel">
+      <div class="carousel-track" id="carousel-track">
+        <img src="images/airbnb-01.jpg" alt="Pool at sunset">
+        <img src="images/airbnb-02.jpg" alt="Pool and backyard at sunset">
+        <img src="images/airbnb-03.jpg" alt="Poolside loungers at dusk">
+        <img src="images/airbnb-04.jpg" alt="Pool daytime">
+        <img src="images/airbnb-05.jpg" alt="Pool at dusk with cactus mural">
+        <img src="images/airbnb-06.jpg" alt="Cactus mural at night">
+        <img src="images/airbnb-07.jpg" alt="Outdoor dining with string lights">
+        <img src="images/airbnb-08.jpg" alt="BBQ and outdoor dining at dusk">
+        <img src="images/airbnb-09.jpg" alt="Pool table">
+        <img src="images/airbnb-10.jpg" alt="Pool table and open floor plan">
+        <img src="images/airbnb-11.jpg" alt="Living room with TV">
+        <img src="images/airbnb-12.jpg" alt="Living room alternate angle">
+        <img src="images/airbnb-13.jpg" alt="Living room with big screen">
+        <img src="images/airbnb-14.jpg" alt="Kitchen with island">
+        <img src="images/airbnb-15.jpg" alt="Bathroom double vanity">
+      </div>
+      <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8249;</button>
+      <button class="carousel-btn next" onclick="moveCarousel(1)">&#8250;</button>
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+
+    <!-- Property Details -->
+    <div class="airbnb-details">
+      <h3>🏠 Closest Walk to Entertainment District</h3>
+      <div class="airbnb-location">📍 4532 N 74th Place, Scottsdale, AZ 85251</div>
+
+      <div class="airbnb-info-grid">
+        <div class="airbnb-info-item">
+          <div class="airbnb-info-label">Check-in</div>
+          <div class="airbnb-info-value">4:00 PM</div>
+        </div>
+        <div class="airbnb-info-item">
+          <div class="airbnb-info-label">Check-out</div>
+          <div class="airbnb-info-value">11:00 AM</div>
+        </div>
+        <div class="airbnb-info-item">
+          <div class="airbnb-info-label">Guests</div>
+          <div class="airbnb-info-value">10</div>
+        </div>
+      </div>
+
+      <div class="airbnb-beds">🛏 5 bedrooms · 9 beds · 3 bathrooms</div>
+
+      <div class="airbnb-section-label">Amenities</div>
+      <div class="amenity-pills">
+        <span class="amenity-pill">Pool</span>
+        <span class="amenity-pill">Pool Table</span>
+        <span class="amenity-pill">BBQ Grill</span>
+        <span class="amenity-pill">Outdoor Dining</span>
+        <span class="amenity-pill">Full Kitchen</span>
+        <span class="amenity-pill">WiFi</span>
+        <span class="amenity-pill">String Lights</span>
+        <span class="amenity-pill">Egg Chair</span>
+        <span class="amenity-pill">Washer/Dryer</span>
+        <span class="amenity-pill">TV</span>
+      </div>
+
+      <div class="airbnb-section-label">House Rules</div>
+      <div class="airbnb-rules">
+        🔑 Self check-in with keypad<br>
+        🚭 No smoking<br>
+        🚫 No parties or events
+      </div>
+
+      <div class="airbnb-cost">
+        <span>Total: <b>$2,434.50</b> (3 nights)</span>
+        <span>Per person: <b>~$244</b></span>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="https://www.airbnb.com/rooms/1126189265535364852" target="_blank" class="btn-primary" style="display: inline-block; text-decoration: none; font-size: 14px; padding: 12px 28px;">VIEW ON AIRBNB ↗</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1339,6 +1554,57 @@
     }
     db.ref('votes/' + activeVoter).set(voterVotes.length > 0 ? voterVotes : null);
   }
+
+  // ── AIRBNB CAROUSEL ──
+  let carouselIndex = 0;
+  const track = document.getElementById('carousel-track');
+  const totalSlides = track ? track.children.length : 0;
+  const dotsContainer = document.getElementById('carousel-dots');
+  let autoAdvance;
+
+  function buildDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = (e) => { e.stopPropagation(); goToSlide(i); };
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function goToSlide(i) {
+    carouselIndex = ((i % totalSlides) + totalSlides) % totalSlides;
+    track.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+    dotsContainer.querySelectorAll('.carousel-dot').forEach((d, idx) => {
+      d.className = 'carousel-dot' + (idx === carouselIndex ? ' active' : '');
+    });
+    resetAutoAdvance();
+  }
+
+  function moveCarousel(dir) {
+    goToSlide(carouselIndex + dir);
+  }
+
+  function resetAutoAdvance() {
+    clearInterval(autoAdvance);
+    autoAdvance = setInterval(() => moveCarousel(1), 5000);
+  }
+
+  // Touch/swipe support
+  if (track) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) moveCarousel(diff > 0 ? 1 : -1);
+    });
+  }
+
+  buildDots();
+  resetAutoAdvance();
 
   // ── SMOOTH SCROLL (offset for fixed nav) ──
   document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
