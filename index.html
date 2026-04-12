@@ -512,6 +512,10 @@
       border-radius: 10px;
       padding: 14px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     .airbnb-info-label {
       font-size: 11px;
@@ -867,11 +871,11 @@
 <nav>
   <ul>
     <li><a href="#info">Info</a></li>
-    <li><a href="#crew">Crew</a></li>
-    <li><a href="#flights">Flights</a></li>
     <li><a href="#accommodation">Stay</a></li>
     <li><a href="#itinerary">Itinerary</a></li>
     <li><a href="#activities">Activities</a></li>
+    <li><a href="#crew">Crew</a></li>
+    <li><a href="#flights">Flights</a></li>
     <li><a href="#tips">Tips</a></li>
   </ul>
 </nav>
@@ -935,141 +939,6 @@
   </div>
 </section>
 
-<!-- CREW -->
-<section id="crew">
-  <div class="section-header">
-    <h2>THE CREW</h2>
-    <p>10 deep. Select your name to RSVP.</p>
-    <div class="section-divider"></div>
-  </div>
-
-  <div style="text-align:center; margin-bottom:24px;">
-    <span id="rsvp-count" style="color: var(--text-muted); font-size: 14px;"></span>
-  </div>
-
-  <div class="attendee-grid" id="attendee-grid">
-    <!-- populated by JS -->
-  </div>
-</section>
-
-<!-- FLIGHTS -->
-<section id="flights">
-  <div class="section-header">
-    <h2>FLIGHTS</h2>
-    <p>Everyone books their own flight. All prices are round trip with carry-on.<br>Pick a departure, then choose your return.</p>
-    <div class="section-divider"></div>
-  </div>
-
-  <div style="text-align: center; margin-bottom: 32px;">
-    <button class="btn-primary" style="font-size: 15px; padding: 14px 32px;" onclick="var el=document.getElementById('booking'); var navH=document.querySelector('nav').offsetHeight; var pos=el.getBoundingClientRect().top+window.scrollY-navH-16; window.scrollTo({top:pos,behavior:'smooth'})">CONFIRM YOUR FLIGHT ✈️</button>
-  </div>
-
-  <h3 style="font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:2px; margin-bottom:20px; color:var(--text-secondary);">ELEVEN FLIGHT OPTIONS <span style="font-size:14px; color:var(--text-muted);">(from MSP, everyone except Cam)</span></h3>
-
-  <!-- Flight Group 1 -->
-  <div class="flight-group">
-    <div class="flight-group-header">Depart Thursday 7:26am → 8:37am PHX — Delta DL 1047</div>
-    <div class="flight-group-note">Earliest arrival — most time in Scottsdale. Note: Airbnb check-in won't be until Thursday afternoon, so you'll need to carry luggage until then.</div>
-
-    <div class="flight-option">
-      <div class="flight-option-number">1</div>
-      <div class="flight-option-details">Return Sun 5:17pm → 10:29pm MSP <span style="color:var(--text-muted)">(DL 2284)</span></div>
-      <div class="flight-option-price">$357</div>
-    </div>
-    <div class="flight-option">
-      <div class="flight-option-number">2</div>
-      <div class="flight-option-details">Return Sun 6:39am → 11:44am MSP <span style="color:var(--text-muted)">(DL 2553)</span></div>
-      <div class="flight-option-price">$357</div>
-    </div>
-    <div class="flight-option">
-      <div class="flight-option-number">3</div>
-      <div class="flight-option-details">Return Sun 9:42am → 2:45pm MSP <span style="color:var(--text-muted)">(DL 1047)</span></div>
-      <div class="flight-option-price">$388</div>
-    </div>
-  </div>
-
-  <!-- Flight Group 2 -->
-  <div class="flight-group">
-    <div class="flight-group-header">⭐ Depart Thursday 9:28am → 10:43am PHX — Delta DL 2208</div>
-    <div class="flight-group-note">Recommended — works best with 3/4pm Airbnb check-in</div>
-
-    <div class="flight-option">
-      <div class="flight-option-number">4</div>
-      <div class="flight-option-details">Return Sun 5:17pm → 10:29pm MSP <span style="color:var(--text-muted)">(DL 2284)</span></div>
-      <div class="flight-option-price">$388</div>
-    </div>
-    <div class="flight-option">
-      <div class="flight-option-number">5</div>
-      <div class="flight-option-details">Return Sun 6:39am → 11:44am MSP <span style="color:var(--text-muted)">(DL 2553)</span></div>
-      <div class="flight-option-price">$388</div>
-    </div>
-    <div class="flight-option">
-      <div class="flight-option-number">6</div>
-      <div class="flight-option-details">Return Sun 9:42am → 2:45pm MSP <span style="color:var(--text-muted)">(DL 1047)</span></div>
-      <div class="flight-option-price">$419</div>
-      <span class="flight-option-badge">Recommended</span>
-    </div>
-  </div>
-
-  <!-- Flight Group 3 -->
-  <div class="flight-group">
-    <div class="flight-group-header">Depart Thursday 2:54pm → 4:09pm PHX — Delta DL 2284</div>
-
-    <div class="flight-option">
-      <div class="flight-option-number">7</div>
-      <div class="flight-option-details">Return Sun 5:17pm → 10:29pm MSP <span style="color:var(--text-muted)">(DL 2284)</span></div>
-      <div class="flight-option-price">$388</div>
-    </div>
-    <div class="flight-option">
-      <div class="flight-option-number">8</div>
-      <div class="flight-option-details">Return Sun 6:39am → 11:44am MSP <span style="color:var(--text-muted)">(DL 2553)</span></div>
-      <div class="flight-option-price">$388</div>
-    </div>
-    <div class="flight-option">
-      <div class="flight-option-number">9</div>
-      <div class="flight-option-details">Return Sun 9:42am → 2:45pm MSP <span style="color:var(--text-muted)">(DL 1047)</span></div>
-      <div class="flight-option-price">$419</div>
-    </div>
-  </div>
-
-  <!-- Flight Group 4 - Sun Country -->
-  <div class="flight-group">
-    <div class="flight-group-header">⚠️ Depart Thursday 9:30pm → 10:47pm PHX — Sun Country SY 609</div>
-    <div class="flight-group-note">You won't arrive until ~11pm Thursday night — but works well if you need to work Thursday</div>
-
-    <div class="flight-option">
-      <div class="flight-option-number">10</div>
-      <div class="flight-option-details">Return Sun 10:27am → 3:27pm MSP <span style="color:var(--text-muted)">(SY 602)</span></div>
-      <div class="flight-option-price">$348</div>
-    </div>
-    <div class="flight-option">
-      <div class="flight-option-number">11</div>
-      <div class="flight-option-details">Return Sun 11:57pm → 4:57am+1 MSP <span style="color:var(--text-muted)">(SY 610)</span> — red-eye</div>
-      <div class="flight-option-price">$313</div>
-    </div>
-  </div>
-
-  <div class="recommendation-box">
-    💡 <b>Recommendation:</b> The 9:28am Delta departure + 9:42am Sunday return (Option 6) at <b>$419</b> is the move — it lines up with the 3/4pm Airbnb check-in and 10/11am checkout. Heads up: check-in won't be until Thursday afternoon, so earlier flights mean carrying luggage until then.
-  </div>
-
-
-  <!-- Cam -->
-  <div class="card" style="margin-top: 24px;">
-    <h3>✈️ FROM FLORIDA — CAM</h3>
-    <p style="color: var(--text-secondary); font-size: 14px;">Cam — find your own flight to/from PHX departing Thu Jul 16 and returning Sun Jul 19. Share your details once booked!</p>
-  </div>
-
-  <!-- Flight Booking -->
-  <div class="card" style="margin-top: 24px;" id="booking">
-    <h3>📋 BOOKING STATUS</h3>
-    <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">Tap your name, then select your flight option. Options are listed above in the flights section.</p>
-    <div class="booking-grid" id="booking-grid">
-      <!-- populated by JS -->
-    </div>
-  </div>
-</section>
-
 <!-- ACCOMMODATION -->
 <section id="accommodation">
   <div class="section-header">
@@ -1105,7 +974,7 @@
     <!-- Property Details -->
     <div class="airbnb-details">
       <h3>🏠 Closest Walk to Entertainment District</h3>
-      <div class="airbnb-location">📍 4532 N 74th Place, Scottsdale, AZ 85251</div>
+      <div class="airbnb-location">📍 <a href="geo:0,0?q=4532+N+74th+Place,+Scottsdale,+AZ+85251" style="color: var(--text-secondary); text-decoration: underline; text-underline-offset: 3px;">4532 N 74th Place, Scottsdale, AZ 85251</a></div>
 
       <div class="airbnb-info-grid">
         <div class="airbnb-info-item">
@@ -1126,28 +995,21 @@
 
       <div class="airbnb-section-label">Amenities</div>
       <div class="amenity-pills">
-        <span class="amenity-pill">Pool</span>
+        <span class="amenity-pill">Heated Pool</span>
         <span class="amenity-pill">Pool Table</span>
-        <span class="amenity-pill">BBQ Grill</span>
+        <span class="amenity-pill">Gas BBQ</span>
         <span class="amenity-pill">Outdoor Dining</span>
         <span class="amenity-pill">Full Kitchen</span>
-        <span class="amenity-pill">WiFi</span>
-        <span class="amenity-pill">String Lights</span>
-        <span class="amenity-pill">Egg Chair</span>
+        <span class="amenity-pill">60" TV</span>
         <span class="amenity-pill">Washer/Dryer</span>
-        <span class="amenity-pill">TV</span>
-      </div>
-
-      <div class="airbnb-section-label">House Rules</div>
-      <div class="airbnb-rules">
-        🔑 Self check-in with keypad<br>
-        🚭 No smoking<br>
-        🚫 No parties or events
+        <span class="amenity-pill">Coffee Bar</span>
+        <span class="amenity-pill">Cocktail Glasses</span>
+        <span class="amenity-pill">Air Mattress (on request)</span>
       </div>
 
       <div class="airbnb-cost">
-        <span>Total: <b>$2,434.50</b> (3 nights)</span>
-        <span>Per person: <b>~$244</b></span>
+        <span>Total: <b>$2,434.50</b> (3 nights) · Split 9 ways: <b>~$271/person</b></span>
+        <span style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">The boys are covering Dylan's share</span>
       </div>
 
       <div style="text-align: center;">
@@ -1242,6 +1104,150 @@
 
   <div class="activities-grid" id="activities-grid">
     <!-- populated by JS -->
+  </div>
+</section>
+
+<!-- CREW -->
+<section id="crew">
+  <div class="section-header">
+    <h2>THE CREW</h2>
+    <p>10 deep. Select your name to RSVP.</p>
+    <div class="section-divider"></div>
+  </div>
+
+  <div style="text-align:center; margin-bottom:24px;">
+    <span id="rsvp-count" style="color: var(--text-muted); font-size: 14px;"></span>
+  </div>
+
+  <div class="attendee-grid" id="attendee-grid">
+    <!-- populated by JS -->
+  </div>
+</section>
+
+<!-- FLIGHTS -->
+<section id="flights">
+  <div class="section-header">
+    <h2>FLIGHTS</h2>
+    <p>Everyone books their own flight. All prices are round trip with carry-on.<br>Pick a departure, then choose your return.</p>
+    <div class="section-divider"></div>
+  </div>
+
+  <div style="text-align: center; margin-bottom: 32px;">
+    <button class="btn-primary" style="font-size: 15px; padding: 14px 32px;" onclick="var el=document.getElementById('booking'); var navH=document.querySelector('nav').offsetHeight; var pos=el.getBoundingClientRect().top+window.scrollY-navH-16; window.scrollTo({top:pos,behavior:'smooth'})">CONFIRM YOUR FLIGHT ✈️</button>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <button onclick="var c=document.getElementById('flight-options-content'); var a=document.getElementById('flight-toggle-arrow'); var b=this; if(c.style.display==='none'){c.style.display='block';a.style.transform='rotate(180deg)';b.style.borderRadius='12px 12px 0 0'}else{c.style.display='none';a.style.transform='rotate(0deg)';b.style.borderRadius='12px'}" style="width:100%; padding:18px 24px; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:all 0.3s;">
+      <span style="display:flex; flex-direction:column; align-items:flex-start; gap:4px;">
+        <span style="font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:2px;">✈️ VIEW FLIGHT OPTIONS</span>
+        <span style="font-size:12px; color:var(--text-muted); font-family:'Inter',sans-serif;">11 options from MSP · Tap to expand</span>
+      </span>
+      <span id="flight-toggle-arrow" style="font-size:20px; transition:transform 0.3s; display:inline-block;">▾</span>
+    </button>
+    <div id="flight-options-content" style="display:none; padding:0 24px 24px; background:var(--bg-card); border:1px solid var(--border); border-top:none; border-radius:0 0 12px 12px;">
+
+  <!-- Flight Group 1 -->
+  <div class="flight-group">
+    <div class="flight-group-header">Depart Thursday 7:26am → 8:37am PHX — Delta DL 1047</div>
+    <div class="flight-group-note">Earliest arrival — most time in Scottsdale. Note: Airbnb check-in won't be until Thursday afternoon, so you'll need to carry luggage until then.</div>
+
+    <div class="flight-option">
+      <div class="flight-option-number">1</div>
+      <div class="flight-option-details">Return Sun 5:17pm → 10:29pm MSP <span style="color:var(--text-muted)">(DL 2284)</span></div>
+      <div class="flight-option-price">$357</div>
+    </div>
+    <div class="flight-option">
+      <div class="flight-option-number">2</div>
+      <div class="flight-option-details">Return Sun 6:39am → 11:44am MSP <span style="color:var(--text-muted)">(DL 2553)</span></div>
+      <div class="flight-option-price">$357</div>
+    </div>
+    <div class="flight-option">
+      <div class="flight-option-number">3</div>
+      <div class="flight-option-details">Return Sun 9:42am → 2:45pm MSP <span style="color:var(--text-muted)">(DL 1047)</span></div>
+      <div class="flight-option-price">$388</div>
+    </div>
+  </div>
+
+  <!-- Flight Group 2 -->
+  <div class="flight-group">
+    <div class="flight-group-header">⭐ Depart Thursday 9:28am → 10:43am PHX — Delta DL 2208</div>
+    <div class="flight-group-note">Recommended — works best with 3/4pm Airbnb check-in</div>
+
+    <div class="flight-option">
+      <div class="flight-option-number">4</div>
+      <div class="flight-option-details">Return Sun 5:17pm → 10:29pm MSP <span style="color:var(--text-muted)">(DL 2284)</span></div>
+      <div class="flight-option-price">$388</div>
+    </div>
+    <div class="flight-option">
+      <div class="flight-option-number">5</div>
+      <div class="flight-option-details">Return Sun 6:39am → 11:44am MSP <span style="color:var(--text-muted)">(DL 2553)</span></div>
+      <div class="flight-option-price">$388</div>
+    </div>
+    <div class="flight-option">
+      <div class="flight-option-number">6</div>
+      <div class="flight-option-details">Return Sun 9:42am → 2:45pm MSP <span style="color:var(--text-muted)">(DL 1047)</span></div>
+      <div class="flight-option-price">$419</div>
+      <span class="flight-option-badge">Recommended</span>
+    </div>
+  </div>
+
+  <!-- Flight Group 3 -->
+  <div class="flight-group">
+    <div class="flight-group-header">Depart Thursday 2:54pm → 4:09pm PHX — Delta DL 2284</div>
+
+    <div class="flight-option">
+      <div class="flight-option-number">7</div>
+      <div class="flight-option-details">Return Sun 5:17pm → 10:29pm MSP <span style="color:var(--text-muted)">(DL 2284)</span></div>
+      <div class="flight-option-price">$388</div>
+    </div>
+    <div class="flight-option">
+      <div class="flight-option-number">8</div>
+      <div class="flight-option-details">Return Sun 6:39am → 11:44am MSP <span style="color:var(--text-muted)">(DL 2553)</span></div>
+      <div class="flight-option-price">$388</div>
+    </div>
+    <div class="flight-option">
+      <div class="flight-option-number">9</div>
+      <div class="flight-option-details">Return Sun 9:42am → 2:45pm MSP <span style="color:var(--text-muted)">(DL 1047)</span></div>
+      <div class="flight-option-price">$419</div>
+    </div>
+  </div>
+
+  <!-- Flight Group 4 - Sun Country -->
+  <div class="flight-group">
+    <div class="flight-group-header">⚠️ Depart Thursday 9:30pm → 10:47pm PHX — Sun Country SY 609</div>
+    <div class="flight-group-note">You won't arrive until ~11pm Thursday night — but works well if you need to work Thursday</div>
+
+    <div class="flight-option">
+      <div class="flight-option-number">10</div>
+      <div class="flight-option-details">Return Sun 10:27am → 3:27pm MSP <span style="color:var(--text-muted)">(SY 602)</span></div>
+      <div class="flight-option-price">$348</div>
+    </div>
+    <div class="flight-option">
+      <div class="flight-option-number">11</div>
+      <div class="flight-option-details">Return Sun 11:57pm → 4:57am+1 MSP <span style="color:var(--text-muted)">(SY 610)</span> — red-eye</div>
+      <div class="flight-option-price">$313</div>
+    </div>
+  </div>
+
+  <div class="recommendation-box">
+    💡 <b>Recommendation:</b> The 9:28am Delta departure + 9:42am Sunday return (Option 6) at <b>$419</b> is the move — it lines up with the 3/4pm Airbnb check-in and 10/11am checkout. Heads up: check-in won't be until Thursday afternoon, so earlier flights mean carrying luggage until then.
+  </div>
+
+    </div>
+  </div>
+
+  <!-- Cam -->
+  <div style="margin-top: 12px; padding: 12px 16px; border-radius: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); font-size: 13px; color: var(--text-muted);">
+    ✈️ <b style="color: var(--text-secondary);">Cam (from Florida)</b> — book your own flight to/from PHX, Thu Jul 16 – Sun Jul 19.
+  </div>
+
+  <!-- Flight Booking -->
+  <div class="card" style="margin-top: 24px;" id="booking">
+    <h3>📋 BOOKING STATUS</h3>
+    <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">Tap your name, then select your flight option. Options are listed above in the flights section.</p>
+    <div class="booking-grid" id="booking-grid">
+      <!-- populated by JS -->
+    </div>
   </div>
 </section>
 
