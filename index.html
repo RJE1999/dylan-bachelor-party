@@ -725,7 +725,7 @@
       color: var(--neon-orange);
       font-weight: 600;
       font-size: 14px;
-      min-width: 80px;
+      width: 170px;
       flex-shrink: 0;
     }
     .event-desc { font-size: 14px; }
@@ -874,10 +874,10 @@
     <li><a href="#info">Info</a></li>
     <li><a href="#accommodation">Stay</a></li>
     <li><a href="#itinerary">Itinerary</a></li>
-    <li><a href="#activities">Activities</a></li>
+    <li><a href="#tips">Tips</a></li>
     <li><a href="#crew">Crew</a></li>
     <li><a href="#flights">Flights</a></li>
-    <li><a href="#tips">Tips</a></li>
+    <li><a href="#activities">Activities</a></li>
   </ul>
 </nav>
 
@@ -1035,12 +1035,32 @@
     </div>
     <div class="day-events">
       <div class="day-event">
+        <div class="event-time">10:43 AM</div>
+        <div class="event-desc">Flight arrives PHX</div>
+      </div>
+      <div class="day-event">
         <div class="event-time">Afternoon</div>
-        <div class="event-desc">Arrivals / Check-in</div>
+        <div class="event-desc">Drop luggage at Airbnb</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Afternoon</div>
+        <div class="event-desc">Lunch & bar hopping</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Late Afternoon</div>
+        <div class="event-desc">Sprouts grocery run, unpack at Airbnb</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Dinner</div>
+        <div class="event-desc">Dinner at Airbnb (hot dogs / burgers / pizza)</div>
       </div>
       <div class="day-event">
         <div class="event-time">Evening</div>
-        <div class="event-desc">Dinner + drinks in Old Town Scottsdale</div>
+        <div class="event-desc">Pool hangout</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Night</div>
+        <div class="event-desc">Drinking games / billiards / poker tournament</div>
       </div>
     </div>
   </div>
@@ -1048,12 +1068,31 @@
   <div class="itinerary-day">
     <div class="itinerary-day-header">
       <div class="day-badge">FRI JUL 17</div>
-      <div class="day-title">DAY ONE</div>
     </div>
     <div class="day-events">
       <div class="day-event">
-        <div class="event-time">All Day</div>
-        <div class="event-desc event-tbd">TBD — vote on activities below!</div>
+        <div class="event-time">7:00 AM tee time</div>
+        <div class="event-desc">Golf (9-hole scramble) at Continental Golf Club</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Late Morning</div>
+        <div class="event-desc">Hangout / shower / change at Airbnb</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Lunch</div>
+        <div class="event-desc">Lunch at Airbnb</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Afternoon</div>
+        <div class="event-desc">Casino at Talking Stick</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Dinner</div>
+        <div class="event-desc">Casual dinner in town</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Night</div>
+        <div class="event-desc">Bar hopping</div>
       </div>
     </div>
   </div>
@@ -1065,8 +1104,28 @@
     </div>
     <div class="day-events">
       <div class="day-event">
-        <div class="event-time">All Day</div>
-        <div class="event-desc event-tbd">TBD — vote on activities below!</div>
+        <div class="event-time">Morning</div>
+        <div class="event-desc">Hangout at Airbnb</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Lunch</div>
+        <div class="event-desc">Lunch at Airbnb</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Afternoon</div>
+        <div class="event-desc">Pool party at Airbnb</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Late Afternoon</div>
+        <div class="event-desc">Get ready at Airbnb</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">6:30 PM reservation</div>
+        <div class="event-desc">Dinner at STK Steakhouse</div>
+      </div>
+      <div class="day-event">
+        <div class="event-time">Night</div>
+        <div class="event-desc">Bars / casino</div>
       </div>
     </div>
   </div>
@@ -1079,32 +1138,57 @@
     <div class="day-events">
       <div class="day-event">
         <div class="event-time">Morning</div>
-        <div class="event-desc">Brunch / Recovery</div>
+        <div class="event-desc">Pack up / brunch</div>
       </div>
       <div class="day-event">
-        <div class="event-time">Afternoon</div>
-        <div class="event-desc">Departures ✌️</div>
+        <div class="event-time">9:42 AM</div>
+        <div class="event-desc">Flight departs PHX ✌️</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ACTIVITY VOTING -->
-<section id="activities">
+<!-- WEATHER / TIPS -->
+<section id="tips">
   <div class="section-header">
-    <h2>ACTIVITY VOTE</h2>
-    <p>Pick what you want to do. Vote for as many as you like.</p>
+    <h2>KNOW BEFORE YOU GO</h2>
     <div class="section-divider"></div>
   </div>
 
-  <p style="color: var(--text-secondary); font-size: 14px; text-align: center; margin-bottom: 16px;">Tap your name to start voting, then tap activities to toggle your votes.</p>
-
-  <div class="voter-pills" id="voter-pills">
-    <!-- populated by JS -->
-  </div>
-
-  <div class="activities-grid" id="activities-grid">
-    <!-- populated by JS -->
+  <div class="weather-cards">
+    <div class="weather-card">
+      <h4>🔥 Weather</h4>
+      <ul>
+        <li>July in Scottsdale = 100-110°F+</li>
+        <li>Dry heat, but still brutally hot</li>
+        <li>Outdoor stuff early morning only</li>
+        <li>Pools, AC venues, and nightlife are your friend</li>
+      </ul>
+    </div>
+    <div class="weather-card">
+      <h4>🧳 Pack This</h4>
+      <ul>
+        <li>Sunscreen (SPF 50+, you will burn)</li>
+        <li>Sunglasses</li>
+        <li>Hats</li>
+        <li>Swim trunks</li>
+        <li>Golf clothes</li>
+        <li>Golf balls & tees</li>
+        <li>1 nice outfit for fancy dinner (long pants)</li>
+        <li>Going-out clothes for nightlife</li>
+        <li>Walking shoes for bar hopping</li>
+        <li>Hangover kit (Pedialyte, Advil)</li>
+      </ul>
+    </div>
+    <div class="weather-card">
+      <h4>⏰ Time Zone</h4>
+      <ul>
+        <li>Arizona = Mountain Standard Time</li>
+        <li>AZ does NOT observe daylight saving</li>
+        <li>In July: same as Pacific Time (PDT)</li>
+        <li>2 hours behind Minnesota (CDT)</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -1252,43 +1336,24 @@
   </div>
 </section>
 
-<!-- WEATHER / TIPS -->
-<section id="tips">
+<!-- ACTIVITY VOTING (archived — voting closed) -->
+<section id="activities">
   <div class="section-header">
-    <h2>KNOW BEFORE YOU GO</h2>
+    <h2>ACTIVITY VOTE</h2>
+    <p>Voting is closed — final picks are locked into the itinerary above.</p>
     <div class="section-divider"></div>
+    <button type="button" id="activities-toggle" class="btn-primary" style="font-size:14px; padding:10px 20px; margin-top:8px;" aria-expanded="false" aria-controls="activities-body">Show vote results ▾</button>
   </div>
 
-  <div class="weather-cards">
-    <div class="weather-card">
-      <h4>🔥 Weather</h4>
-      <ul>
-        <li>July in Scottsdale = 100-110°F+</li>
-        <li>Dry heat, but still brutally hot</li>
-        <li>Outdoor stuff early morning only</li>
-        <li>Pools, AC venues, and nightlife are your friend</li>
-      </ul>
+  <div id="activities-body" hidden>
+    <p style="color: var(--text-secondary); font-size: 14px; text-align: center; margin-bottom: 16px;">Tap your name to start voting, then tap activities to toggle your votes.</p>
+
+    <div class="voter-pills" id="voter-pills">
+      <!-- populated by JS -->
     </div>
-    <div class="weather-card">
-      <h4>🧳 Pack This</h4>
-      <ul>
-        <li>Sunscreen (SPF 50+, you will burn)</li>
-        <li>Swim trunks</li>
-        <li>Sunglasses</li>
-        <li>Going-out clothes for nightlife</li>
-        <li>Golf clothes (if we night golf)</li>
-        <li>Comfortable shoes</li>
-        <li>Hangover kit (Pedialyte, Advil)</li>
-      </ul>
-    </div>
-    <div class="weather-card">
-      <h4>⏰ Time Zone</h4>
-      <ul>
-        <li>Arizona = Mountain Standard Time</li>
-        <li>AZ does NOT observe daylight saving</li>
-        <li>In July: same as Pacific Time (PDT)</li>
-        <li>2 hours behind Minnesota (CDT)</li>
-      </ul>
+
+    <div class="activities-grid" id="activities-grid">
+      <!-- populated by JS -->
     </div>
   </div>
 </section>
@@ -1297,6 +1362,28 @@
 <footer>
   <p>Dylan's Bachelor Party — Scottsdale 2026 🌵</p>
 </footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('activities-toggle');
+    var body = document.getElementById('activities-body');
+    if (!btn || !body) return;
+    function setOpen(open) {
+      body.hidden = !open;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Hide vote results ▴' : 'Show vote results ▾';
+    }
+    btn.addEventListener('click', function () { setOpen(body.hidden); });
+    function maybeOpenFromHash() {
+      if (window.location.hash === '#activities') setOpen(true);
+    }
+    window.addEventListener('hashchange', maybeOpenFromHash);
+    document.querySelectorAll('a[href="#activities"]').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(true); });
+    });
+    maybeOpenFromHash();
+  })();
+</script>
 
 <!-- Firebase SDK (compat for inline script usage) -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
